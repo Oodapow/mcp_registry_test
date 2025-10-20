@@ -21,21 +21,22 @@ This project provides example scripts for:
   - Paginate through all servers
   - Get installation instructions
 
-## Installation
+## Interactive API Documentation
 
-### Prerequisites
+The MCP Registry provides an interactive API documentation interface powered by OpenAPI/Swagger. This is the easiest way to explore and test the registry API.
 
-```bash
-python 3.8+
-pip install requests jsonschema
-```
+**Access the docs at:** `http://localhost:8080/docs`
 
-### Optional Dependencies
+![Registry API Documentation](docs.png)
 
-For development:
-```bash
-pip install requests jsonschema
-```
+The interactive documentation allows you to:
+- Browse all available endpoints
+- View request/response schemas
+- Test API calls directly from your browser
+- See authentication requirements
+- Explore server publishing and discovery endpoints
+
+This is particularly useful for understanding the API before writing your own scripts or integrations.
 
 ## Usage
 
@@ -81,52 +82,6 @@ This script demonstrates:
 4. **Paginating** through all available servers
 5. **Getting** installation instructions
 
-## Examples
-
-### Example 1: Publish a Server
-
-```bash
-cd scripts
-python publish_server_rest.py
-```
-
-Output:
-```
-======================================================================
-MCP Server Publisher - REST API Mode
-======================================================================
-
-Server Information:
-   Name:        io.modelcontextprotocol.anonymous/mcp-math-server
-   Version:     0.1.0
-   
-[OK] Successfully published!
-```
-
-### Example 2: Search for Servers
-
-```bash
-python consume_from_registry.py
-```
-
-The script will demonstrate:
-- Searching for "math" servers
-- Getting detailed information about the math server
-- Listing all available versions
-- Getting installation instructions
-
-### Example 3: Custom Registry URL
-
-```bash
-# Point to a different registry
-export MCP_REGISTRY_URL="https://registry.example.com"
-python consume_from_registry.py
-```
-
-## Development
-
-These are example scripts for testing and demonstration purposes.
-
 ### Key Features
 
 - **REST API Integration**: Direct HTTP requests to registry endpoints
@@ -157,12 +112,3 @@ mcp_registry_test/
 2. **MCP Server**: For publishing tests, you need a valid `server.json`
    - Example server is in `../mcp_server_test/`
    - Or create your own following the [MCP specification](https://modelcontextprotocol.io)
-
-## Related Projects
-
-- **mcp_server_test/** - Example MCP Math Server for testing
-- **registry/** - Main MCP Registry server implementation
-
-## License
-
-MIT

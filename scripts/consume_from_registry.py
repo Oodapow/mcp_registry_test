@@ -207,7 +207,7 @@ def example_4_list_all_servers(client: MCPRegistryClient):
         
         print(f"\nPage {page}: Found {len(servers)} servers")
         
-        cursor = result.get('nextCursor')
+        cursor = result.get("metadata", {}).get('nextCursor')
         if not cursor:
             break
         page += 1
